@@ -5,15 +5,15 @@ namespace PokemonReviewApi.Interfaces
 {
 	public interface IPokemonRepository
 	{
-		Task<ICollection<Pokemon>> GetPokemonsAsync();
+		ICollection<Pokemon> GetPokemons();
 
-		bool Add(Pokemon Pokemon);
+		Pokemon GetPokemon(int id);
 
-		bool Update(Pokemon Pokemon);
+		Pokemon GetPokemon(string name);
 
-		bool Delete(Pokemon Pokemon);
+		decimal GetPokemonRating(int pokemonId);
 
-		bool Save();
+		bool PokemonExists(int pokemonId);
 	}
 }
 

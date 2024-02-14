@@ -15,32 +15,29 @@ namespace PokemonReviewApi.Repository
             this._context = context;
         }
 
-        public bool Add(Pokemon Pokemon)
+        public Pokemon GetPokemon(int id)
         {
-            this._context.Add(Pokemon);
-            return Save();
+            return _context.Pokemon.Where(p => p.Id == id).FirstOrDefault();
         }
 
-        public bool Delete(Pokemon Pokemon)
+        public Pokemon GetPokemon(string name)
         {
-            this._context.Remove(Pokemon);
-            return Save();
+            return _context.Pokemon.Where(p => p.Name == name).FirstOrDefault();
         }
 
-        public bool Save()
+        public decimal GetPokemonRating(int pokemonId)
         {
-            var saved = this._context.SaveChanges();
-            return saved > 0 ? true : false;
+            var review = _context.Reviews
         }
 
-        public bool Update(Pokemon Pokemon)
+        public ICollection<Pokemon> GetPokemons()
+        {
+            return _context.Pokemon.OrderBy(p => p.Id).ToList();
+        }
+
+        public bool PokemonExists(int pokemonId)
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<ICollection<Pokemon>> GetPokemonsAsync()
-        {
-            return await _context.Pokemon.OrderBy(p => p.Id).ToListAsync();
         }
     }
 }

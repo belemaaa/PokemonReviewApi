@@ -20,9 +20,9 @@ namespace PokemonReviewApi.Controllers
 		[HttpGet]
 		[ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
 
-		public async Task<IActionResult> GetPokemons()
+		public IActionResult GetPokemons()
 		{
-			var pokemons = await _pokemonRepository.GetPokemonsAsync();
+			var pokemons = _pokemonRepository.GetPokemons();
 			if (!ModelState.IsValid)
 				return BadRequest(ModelState);
 
