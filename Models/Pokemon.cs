@@ -15,7 +15,7 @@ namespace PokemonReviewApi.Models
 
 		public ICollection<PokemonOwner> PokemonOwners { get; set; }
 
-		public ICollection<PokemonCategory> pokemonCategories { get; set; }
+		public ICollection<PokemonCategory> PokemonCategories { get; set; }
     }
 }
 
