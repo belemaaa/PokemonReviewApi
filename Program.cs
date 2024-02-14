@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PokemonReviewApi.Data;
+using PokemonReviewApi.Interfaces;
+using PokemonReviewApi.Repository;
 
 namespace PokemonReviewApi;
 
@@ -11,6 +13,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
+        builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
         builder.Services.AddTransient<Seed>();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
