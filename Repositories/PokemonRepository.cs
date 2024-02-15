@@ -22,12 +22,17 @@ namespace PokemonReviewApi.Repository
 
         public Pokemon GetPokemon(string name)
         {
+            
             return _context.Pokemon.Where(p => p.Name == name).FirstOrDefault();
         }
 
         public decimal GetPokemonRating(int pokemonId)
         {
-            var review = _context.Reviews
+            var reviews = _context.Reviews.Where(p => p.Pokemon.Id == pokemonId);
+            if (!reviews.Any())
+                return 0;
+
+            return Math.Round(((decimal)reviews.Sum(r => r.Rating) / reviews.Count()), 2);
         }
 
         public ICollection<Pokemon> GetPokemons()
@@ -37,7 +42,7 @@ namespace PokemonReviewApi.Repository
 
         public bool PokemonExists(int pokemonId)
         {
-            throw new NotImplementedException();
+            return _context.Pokemon.Any(p => p.Id == pokemonId);
         }
     }
 }

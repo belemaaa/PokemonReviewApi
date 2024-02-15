@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "gX2rZcDwelYPJSFBph/Y53h3IRBEDLjPTtGtcKNXdnlF5PEgoW8v3WwpHrhUk6Llg99NE0+ImB7OfMRRJ34wqg==",
+  "dgSpecHash": "XiAj919sBtjZYTUxGwGhrrSXLqjvf/EXcnSrKmocQNeiq7DSPUBNEVNIrBsg26AAiCXJb766apvikUudne2KMw==",
   "success": true,
   "projectFilePath": "/Users/graceitamunoala/Projects/PokemonReviewApi/PokemonReviewApi/PokemonReviewApi.csproj",
   "expectedPackageFiles": [
+    "/Users/graceitamunoala/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/graceitamunoala/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/graceitamunoala/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/graceitamunoala/.nuget/packages/microsoft.aspnetcore.cryptography.internal/6.0.26/microsoft.aspnetcore.cryptography.internal.6.0.26.nupkg.sha512",
     "/Users/graceitamunoala/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/6.0.26/microsoft.aspnetcore.cryptography.keyderivation.6.0.26.nupkg.sha512",
     "/Users/graceitamunoala/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.26/microsoft.aspnetcore.identity.entityframeworkcore.6.0.26.nupkg.sha512",
-    "/Users/graceitamunoala/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/Users/graceitamunoala/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/graceitamunoala/.nuget/packages/microsoft.data.sqlclient/2.1.4/microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "/Users/graceitamunoala/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "/Users/graceitamunoala/.nuget/packages/microsoft.entityframeworkcore/6.0.26/microsoft.entityframeworkcore.6.0.26.nupkg.sha512",
