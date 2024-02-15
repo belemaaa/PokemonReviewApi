@@ -21,7 +21,7 @@ namespace PokemonReviewApi.Controllers
             this._mapper = mapper;
         }
 
-
+        //get all pokemons
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
         public IActionResult GetPokemons()
@@ -33,17 +33,17 @@ namespace PokemonReviewApi.Controllers
             return Ok(pokemons);
         }
 
-
+        //get pokemon by id
         [HttpGet("{pokemonId}")]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public IActionResult GetPokemonById(int pokemonId)
+        public IActionResult GetPokemon(int pokemonId)
         {
             bool pokemonExists = _pokemonRepository.PokemonExists(pokemonId);
             if (!pokemonExists)
             {
-                return NotFound("Pokemon object not found");
+                return NotFound("Object not found");
             }
 
             var pokemon = _mapper.Map<PokemonDto>(_pokemonRepository.GetPokemon(pokemonId));
@@ -54,7 +54,7 @@ namespace PokemonReviewApi.Controllers
             return Ok(pokemon);
         }
 
-
+        //get pokemon rating
         [HttpGet("{pokemonId}/rating")]
         [ProducesResponseType(200, Type = typeof(decimal))]
         [ProducesResponseType(400)]
@@ -64,7 +64,7 @@ namespace PokemonReviewApi.Controllers
             bool pokemonExists = _pokemonRepository.PokemonExists(pokemonId);
             if (!pokemonExists)
             {
-                return NotFound("Pokemon object not found");
+                return NotFound("Object not found");
             }
 
             var pokemonRating = _pokemonRepository.GetPokemonRating(pokemonId);
