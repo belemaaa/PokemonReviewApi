@@ -4,7 +4,7 @@ using PokemonReviewApi.Data;
 using PokemonReviewApi.Interfaces;
 using PokemonReviewApi.Models;
 
-namespace PokemonReviewApi.Repository
+namespace PokemonReviewApi.Repositories
 {
     public class PokemonRepository : IPokemonRepository
     {
@@ -22,7 +22,6 @@ namespace PokemonReviewApi.Repository
 
         public Pokemon GetPokemon(string name)
         {
-            
             return _context.Pokemon.Where(p => p.Name == name).FirstOrDefault();
         }
 

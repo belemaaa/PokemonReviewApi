@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using PokemonReviewApi.Dto;
 using PokemonReviewApi.Interfaces;
 using PokemonReviewApi.Models;
-using PokemonReviewApi.Repository;
 
 namespace PokemonReviewApi.Controllers
 {
@@ -20,6 +19,17 @@ namespace PokemonReviewApi.Controllers
 		{
             this._categoryRepository = categoryRepository;
             this._mapper = mapper;
+        }
+
+        //get all categories
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Category>))]
+        public IActionResult GetCategories()
+        {
+            var categories = _mapper.Map<List<CategoryDto>>(_categoryRepository.GetCategories());
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(categories);
         }
 
         //get category by id
@@ -43,20 +53,8 @@ namespace PokemonReviewApi.Controllers
             return Ok(category);
         }
 
-        //get all categories
-        [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Category>))]
-        public IActionResult GetCategories()
-        {
-            var categories = _mapper.Map<List<CategoryDto>>(_categoryRepository.GetCategories());
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            return Ok(categories);
-        }
-
-
         //get pokemon by category
-        [HttpGet("{categoryId}")]
+        [HttpGet("{categoryId}/pokemon")]
         [ProducesResponseType(200, Type = typeof(Pokemon))]
         [ProducesResponseType(404)]
         public IActionResult GetPokemonByCategory(int categoryId)
