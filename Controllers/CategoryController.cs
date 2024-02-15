@@ -65,7 +65,7 @@ namespace PokemonReviewApi.Controllers
                 return NotFound("Object not found");
             }
 
-            var pokemon = _categoryRepository.GetPokemonByCategory(categoryId);
+            var pokemon = _mapper.Map<List<PokemonDto>>(_categoryRepository.GetPokemonByCategory(categoryId));
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
