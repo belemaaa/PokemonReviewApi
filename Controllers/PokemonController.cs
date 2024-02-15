@@ -24,7 +24,6 @@ namespace PokemonReviewApi.Controllers
 
 		[HttpGet]
 		[ProducesResponseType(200, Type = typeof(IEnumerable<Pokemon>))]
-
 		public IActionResult GetPokemons()
 		{
 			var pokemons = _mapper.Map<List<PokemonDto>>(_pokemonRepository.GetPokemons());
@@ -39,7 +38,6 @@ namespace PokemonReviewApi.Controllers
 		[ProducesResponseType(200, Type = typeof(Pokemon))]
 		[ProducesResponseType(400)]
 		[ProducesResponseType(404)]
-
 		public IActionResult GetPokemonById(int pokemonId)
 		{
             bool pokemonExists = _pokemonRepository.PokemonExists(pokemonId);
@@ -61,7 +59,6 @@ namespace PokemonReviewApi.Controllers
         [ProducesResponseType(200, Type = typeof(decimal))]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-
 		public IActionResult GetPokemonRating(int pokemonId)
 		{
 			bool pokemonExists = _pokemonRepository.PokemonExists(pokemonId);
